@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <div className='flex flex-col'>
       <Link href="/" className="font-bold">
-        Srpiple's Blog
+        <h1>{`Srpiple's Blog`}</h1>
       </Link>
       <div className="flex flex-col p-6 w-5">
         {
