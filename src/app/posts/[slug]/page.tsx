@@ -15,7 +15,7 @@ export async function generateStaticParams() {
 
 // 2. 定义页面的元数据 (Title, Description 等)
 // `params` 来自于 generateStaticParams 或 URL
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const {slug} = await params;
   const postData = await getPostData(slug); // 获取数据以填充元数据
   return {
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 // 3. 默认导出页面组件 (React Component)
 // 它接收 params，其中包含了 URL 中的动态值
-export default async function PostPage({ params }: { params: { slug: string } }) {
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
   const {slug} = await params;
   const postData = await getPostData(slug);
 
