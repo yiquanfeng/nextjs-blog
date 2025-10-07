@@ -20,7 +20,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const postData = await getPostData(slug); // 获取数据以填充元数据
   return {
     title: postData.title,
-    description: postData.description || `This is a post about ${postData.title}`, // 可以在 front-matter 中加一个 description
   };
 }
 

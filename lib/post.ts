@@ -22,7 +22,9 @@ export function getSortedPostsData() {
     const matterResult = matter(fileContents);
     return {
       id,
-      ...matterResult.data, // 将 front matter (如 title, date) 展开放入对象
+      date: matterResult.data.date,
+      draft: matterResult.data.draft,
+      title: matterResult.data.title
     };
     
   })
@@ -54,6 +56,8 @@ export function getPostData(slug: string) {
   return {
     slug,
     contentHtml,
-    ...matterResult.data, // 展开 { title, date, ... }
+    date: matterResult.data.date,
+    draft: matterResult.data.draft,
+    title: matterResult.data.title
   };
 }
